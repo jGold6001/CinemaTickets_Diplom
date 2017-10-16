@@ -61,6 +61,7 @@ public class MovieServiceTest {
 	
 	@Test
 	public void testCreateOrUpdate() {
+		//fuck
 //		Movie movieInDb = movieService.createOrUpdate(movie);
 //		assertEquals(movie.getId(), movieInDb.getId());
 	}
