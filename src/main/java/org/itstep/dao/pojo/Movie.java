@@ -32,7 +32,7 @@ public class Movie implements Serializable {
 	@Column(name="NAME", length=60, nullable = false)
 	private String name;
 	
-	@Column(name= "GENRE", length=40)
+	@Column(name= "GENRE", length=90)
 	private String genre;
 	
 	@Column(name="DESCRIPTION", columnDefinition = "TEXT", length=512)
@@ -62,10 +62,10 @@ public class Movie implements Serializable {
 	@Column(name = "RANK_SALES")
 	private int rankSales;
 	
-	@Column(name = "DATE_ISSUE", nullable = false)
+	@Column(name = "DATE_ISSUE")
 	private Date dateIssue;
 	
-	@Column(name = "DATE_FINISH", nullable = false)
+	@Column(name = "DATE_FINISH")
 	private Date dateFinish;
 	
 	public Movie() {
@@ -87,6 +87,4 @@ public class Movie implements Serializable {
 		this.dateIssue = dateIssue;
 		this.dateFinish = dateFinish;
 	}
-	
-	
 }

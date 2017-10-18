@@ -11,6 +11,9 @@ public interface MovieService {
 	public Movie createOrUpdate(Movie movie);
 	public void delete(long id);
 	public List<Movie> getAll();
-	public List<Movie> findAllPremiere(Date date);
+	public List<Movie> findAllPremiere();
+	public List<Movie> findAllComingSoon();
+	public List<Movie> findByDate(Date selectDate);
+	public List<Movie> getAllByRankOrder();
 	public boolean isUnique(long id);
 }

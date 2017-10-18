@@ -36,8 +36,8 @@ public class MovieServiceImpl implements MovieService {
 		return movieDAO.findAll();
 	}
 
-	public List<Movie> findAllPremiere(Date date) {
-		return null;
+	public List<Movie> findAllPremiere() {
+		return movieDAO.findAllPremeries();
 	}
 
 	public boolean isUnique(long id) {
@@ -47,4 +47,18 @@ public class MovieServiceImpl implements MovieService {
 		return true;
 	}
 
+	@Override
+	public List<Movie> findAllComingSoon() {
+		return movieDAO.findAllComingSoon();
+	}
+
+	@Override
+	public List<Movie> findByDate(Date selectDate) {
+		return movieDAO.findByDate(selectDate);
+	}
+
+	@Override
+	public List<Movie> getAllByRankOrder() {
+		return movieDAO.getAllByRankOrder();
+	}
 }
