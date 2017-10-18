@@ -1,6 +1,6 @@
 package org.itstep.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -10,6 +10,7 @@ import java.util.List;
 import org.itstep.App;
 import org.itstep.dao.pojo.Movie;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,6 +32,8 @@ public class MovieServiceTest {
 	
 	private List<Movie> movies;
 	private Movie movie;
+	
+
 	
 	@Before
 	public void setData() {
@@ -61,7 +64,20 @@ public class MovieServiceTest {
 						"https://youtu.be/XY8eYVXJO8g", Date.valueOf(issue_3), Date.valueOf(finish_3))
 				);
 		movie = movies.get(0);
+		
+		
 	}
+	
+	@Test
+	public void testIsDataInDb() {
+	List<Movie> moviesIndDb = movieService.getAll();
+	if(!moviesIndDb.isEmpty()) {
+		for (Movie movie : moviesIndDb) {
+			movieService.delete(movie.getId());
+		}
+		System.out.println("Data from db were delete");
+	}
+}
 	
 	@Test
 	public void test1CreateOrUpdate() {
@@ -85,17 +101,20 @@ public class MovieServiceTest {
 	
 	@Test
 	public void test4FindAllComingSoon() {
-		
+		 List<Movie> listInDb = movieService.findAllComingSoon();
+		 assertEquals(movies.get(1).getName(), listInDb.get(0).getName());
 	}
 	
 	@Test
 	public void test5FindByDate() {
-		
+		List<Movie> listInDb = movieService.findByDate(new Date(2017,10,19));
+		assertEquals(movies.get(1).getName(), listInDb.get(0).getName());
 	}
 	
 	@Test
 	public void test6GetAllByRankOrder() {
-		
+		List<Movie> listInDb = movieService.findAllComingSoon();
+		assertEquals(movies.get(1).getName(), listInDb.get(0).getName());
 	}
 	
 	
