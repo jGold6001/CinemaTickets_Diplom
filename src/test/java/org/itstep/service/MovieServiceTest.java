@@ -1,6 +1,6 @@
 package org.itstep.service;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import java.sql.Date;
 import java.time.LocalDate;
@@ -10,7 +10,6 @@ import java.util.List;
 import org.itstep.App;
 import org.itstep.dao.pojo.Movie;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -32,12 +31,12 @@ public class MovieServiceTest {
 	
 	private List<Movie> movies;
 	private Movie movie;
-	
+	private Date dateCurrent;
 
 	
 	@Before
 	public void setData() {
-		Date dateCurrent = new Date(System.currentTimeMillis());
+		dateCurrent = new Date(System.currentTimeMillis());
 		LocalDate issue_1 = dateCurrent.toLocalDate().minusDays(15);
 		LocalDate finish_1 = issue_1.plusMonths(1);
 		LocalDate issue_2 = dateCurrent.toLocalDate().plusDays(3);
@@ -63,21 +62,24 @@ public class MovieServiceTest {
 						"Владимир Вдовиченков, Павел Деревянко, Мария Миронова, Оксана Фандера",
 						"https://youtu.be/XY8eYVXJO8g", Date.valueOf(issue_3), Date.valueOf(finish_3))
 				);
+		movies.get(0).setRankSales(2);
+		movies.get(1).setRankSales(5);
+		movies.get(2).setRankSales(1);
 		movie = movies.get(0);
 		
 		
 	}
 	
 	@Test
-	public void testIsDataInDb() {
-	List<Movie> moviesIndDb = movieService.getAll();
-	if(!moviesIndDb.isEmpty()) {
-		for (Movie movie : moviesIndDb) {
-			movieService.delete(movie.getId());
+	public void test0IsDataInDb() {
+		List<Movie> moviesIndDb = movieService.getAll();
+		if(!moviesIndDb.isEmpty()) {
+			for (Movie movie : moviesIndDb) {
+				movieService.delete(movie.getId());
+			}
+			System.out.println("Data from db were delete");
 		}
-		System.out.println("Data from db were delete");
 	}
-}
 	
 	@Test
 	public void test1CreateOrUpdate() {
@@ -107,19 +109,23 @@ public class MovieServiceTest {
 	
 	@Test
 	public void test5FindByDate() {
-		List<Movie> listInDb = movieService.findByDate(new Date(2017,10,19));
-		assertEquals(movies.get(1).getName(), listInDb.get(0).getName());
+		LocalDate localDate = dateCurrent.toLocalDate().plusDays(1);
+		List<Movie> listInDb = movieService.findByDate(Date.valueOf(localDate));
+		assertEquals(movies.get(0).getName(), listInDb.get(0).getName());
+		assertEquals(movies.get(2).getName(), listInDb.get(1).getName());
 	}
 	
 	@Test
 	public void test6GetAllByRankOrder() {
-		List<Movie> listInDb = movieService.findAllComingSoon();
-		assertEquals(movies.get(1).getName(), listInDb.get(0).getName());
+		List<Movie> listInDb = movieService.getAllByRankOrder();
+		assertEquals(listInDb.get(0).getRankSales(), 5);
+		assertEquals(listInDb.get(1).getRankSales(), 2);
+		assertEquals(listInDb.get(2).getRankSales(), 1);
 	}
 	
 	
 	@Test
-	public void test7GetAll() {
+	public void test7GetAllAndDelete() {
 		List<Movie> listInDb = movieService.getAll();
 		for (Movie movie : listInDb) {
 			movieService.delete(movie.getId());
