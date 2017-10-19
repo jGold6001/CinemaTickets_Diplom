@@ -73,7 +73,7 @@ public class Movie implements Serializable {
 	}
 
 	public Movie(String name, String genre, String description, int yearIssue, int duration, String ageCategory,
-			String country, String director, String actors, String trailerUrl, Date dateIssue, Date dateFinish) {
+			String country, String director, String actors, String trailerUrl, Date dateIssue, Date dateFinish, int rankSales) {
 		this.name = name;
 		this.genre = genre;
 		this.description = description;
@@ -86,5 +86,6 @@ public class Movie implements Serializable {
 		this.trailerUrl = trailerUrl;
 		this.dateIssue = dateIssue;
 		this.dateFinish = dateFinish;
+		this.rankSales = rankSales;
 	}
 }
