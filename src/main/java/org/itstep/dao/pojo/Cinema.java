@@ -23,7 +23,7 @@ public class Cinema implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "ID", unique= true, nullable = false)
-	private int id;
+	private long id;
 	
 	@Column(name="NAME", length=60, nullable = false)
 	private String name;
@@ -32,6 +32,17 @@ public class Cinema implements Serializable{
 	private String address;
 	
 	@Column(name="CITY", length=6, nullable = false)
-	private int city;
+	private long city;
+	
+	public Cinema() {
+		// TODO Auto-generated constructor stub
+	}
 
+	public Cinema(String name, String address, int city) {
+		this.name = name;
+		this.address = address;
+		this.city = city;
+	}
+	
+	
 }

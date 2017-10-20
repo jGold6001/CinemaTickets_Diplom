@@ -29,6 +29,14 @@ public class Hall implements Serializable{
 	private String name;
 	
 	@Column(name="CINEMA", length=6, nullable = false)
-	private int cinema;
+	private long cinema;
 
+	public Hall() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	public Hall(String name, int cinema) {
+		this.name = name;
+		this.cinema = cinema;
+	}
 }

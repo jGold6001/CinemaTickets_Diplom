@@ -23,9 +23,16 @@ public class City implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "ID", unique= true, nullable = false)
-	private int id;
+	private long id;
 	
 	@Column(name="NAME", length=60, nullable = false)
 	private String name;
+	
+	public City() {
+		// TODO Auto-generated constructor stub
+	}
 
+	public City(String name) {
+		this.name = name;
+	}
 }

@@ -23,6 +23,9 @@ public class Place implements Serializable{
 	@Column(name = "NUMBER", unique= true, length=4, nullable = false)
 	private int number;
 	
+	@Column(name = "ROW", unique= true, length=4, nullable = false)
+	private int row;
+	
 	@Column(name="PRICE", columnDefinition = "decimal")
 	private BigDecimal price;
 	
@@ -32,4 +35,15 @@ public class Place implements Serializable{
 	@Column(name="HALL", length=6, nullable = false)
 	private int hall;
 	
+	public Place() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Place(int number, int row, BigDecimal price, String type, int hall) {
+		this.number = number;
+		this.row = row;
+		this.price = price;
+		this.type = type;
+		this.hall = hall;
+	}
 }
