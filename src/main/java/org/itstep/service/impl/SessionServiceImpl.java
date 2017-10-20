@@ -1,5 +1,6 @@
 package org.itstep.service.impl;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.itstep.dao.SessionDAO;
@@ -38,6 +39,30 @@ public class SessionServiceImpl implements SessionService {
 			return false;
 		}
 		return true;
+	}
+
+	@Override
+	public List<Session> findByTypeD(String typeD) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Session> findByMovie(String movieName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Session> findByCinema(String cinemaName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Session> findByDate(Date date) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

@@ -1,6 +1,7 @@
 package org.itstep.dao.pojo;
 
 import java.io.Serializable;
+import java.sql.Date;
 import java.sql.Time;
 
 import javax.persistence.Column;
@@ -19,15 +20,15 @@ import lombok.Setter;
 @Table(name = "SESSIONS")
 public class Session implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 7569496672176968780L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.TABLE)
 	@Column(name = "ID", unique= true, nullable = false)
 	private long id;
+	
+	@Column(name = "DATE", nullable = false)
+	private Date date;
 	
 	@Column(name = "START_TIME", nullable = false)
 	private Time startTime;
@@ -39,13 +40,14 @@ public class Session implements Serializable {
 	private int hall;
 	
 	@Column(name = "MOVIE", length=10, nullable = false)
-	private int movie;
+	private long movie;
 	
 	public Session() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Session(Time startTime, String tipeD, int hall, int movie) {
+	public Session(Date date, Time startTime, String tipeD, int hall, long movie) {
+		this.date = date;
 		this.startTime = startTime;
 		this.tipeD = tipeD;
 		this.hall = hall;

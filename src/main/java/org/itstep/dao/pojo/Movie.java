@@ -19,9 +19,6 @@ import lombok.Setter;
 @Table(name = "MOVIES")
 public class Movie implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 8734580570097125532L;
 
 	@Id
