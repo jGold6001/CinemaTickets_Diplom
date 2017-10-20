@@ -54,7 +54,7 @@ public class MovieServiceImpl implements MovieService {
 
 	@Override
 	public List<Movie> findByDate(Date selectDate) {
-		return movieDAO.findByDate(selectDate);
+		return null;
 	}
 
 	@Override

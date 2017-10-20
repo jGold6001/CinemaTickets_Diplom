@@ -2,6 +2,7 @@ package org.itstep.dao.pojo;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -62,15 +63,15 @@ public class Movie implements Serializable {
 	@Column(name = "DATE_ISSUE")
 	private Date dateIssue;
 	
-	@Column(name = "DATE_FINISH")
-	private Date dateFinish;
+	//make link one to many
+	private List<String> sessions;
 	
 	public Movie() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public Movie(String name, String genre, String description, int yearIssue, int duration, String ageCategory,
-			String country, String director, String actors, String trailerUrl, Date dateIssue, Date dateFinish, int rankSales) {
+			String country, String director, String actors, String trailerUrl, Date dateIssue, int rankSales) {
 		this.name = name;
 		this.genre = genre;
 		this.description = description;
@@ -82,7 +83,6 @@ public class Movie implements Serializable {
 		this.actors = actors;
 		this.trailerUrl = trailerUrl;
 		this.dateIssue = dateIssue;
-		this.dateFinish = dateFinish;
 		this.rankSales = rankSales;
 	}
 }

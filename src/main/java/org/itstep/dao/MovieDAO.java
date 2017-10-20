@@ -19,8 +19,8 @@ public interface MovieDAO extends JpaRepository<Movie, Long>{
 	@Query(value ="SELECT * FROM MOVIES WHERE DATE_ISSUE > NOW()", nativeQuery = true)
 	List<Movie> findAllComingSoon();
 	
-	@Query(value ="SELECT * FROM MOVIES WHERE ?1 >= DATE_ISSUE  AND ?1 < DATE_FINISH", nativeQuery = true)
-	List<Movie> findByDate(Date selectDate);
+//	@Query(value ="SELECT * FROM MOVIES WHERE ?1 >= DATE_ISSUE  AND ?1 < DATE_FINISH", nativeQuery = true)
+//	List<Movie> findByDate(Date selectDate);
 	
 	@Query(value ="SELECT * FROM MOVIES ORDER BY RANK_SALES DESC", nativeQuery = true)
 	List<Movie> getAllByRankOrder();
