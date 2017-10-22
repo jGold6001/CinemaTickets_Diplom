@@ -63,9 +63,6 @@ public class Movie implements Serializable {
 	@Column(name = "DATE_ISSUE")
 	private Date dateIssue;
 	
-	//make link one to many
-	private List<String> sessions;
-	
 	public Movie() {
 		// TODO Auto-generated constructor stub
 	}
