@@ -4,10 +4,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class SessionServiceTest {
+public class SeanceServiceTest {
 
 	@Autowired
-	private SessionService sessionService; 
+	private SeanceService seanceService; 
 	
 	@Before
 	public void setData() {

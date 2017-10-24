@@ -3,66 +3,66 @@ package org.itstep.service.impl;
 import java.sql.Date;
 import java.util.List;
 
-import org.itstep.dao.SessionDAO;
-import org.itstep.dao.pojo.Session;
-import org.itstep.service.SessionService;
+import org.itstep.dao.SeanceDAO;
+import org.itstep.dao.pojo.Seance;
+import org.itstep.service.SeanceService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class SessionServiceImpl implements SessionService {
+public class SeanceServiceImpl implements SeanceService {
 
 	@Autowired
-	private SessionDAO sessionDAO; 
+	private SeanceDAO seanceDAO; 
 	
 	@Override
-	public Session getOne(long id) {
-		return sessionDAO.getOne(id);
+	public Seance getOne(long id) {
+		return seanceDAO.getOne(id);
 	}
 
 	@Override
-	public Session createOrUpdate(Session session) {
-		return sessionDAO.saveAndFlush(session);
+	public Seance createOrUpdate(Seance seance) {
+		return seanceDAO.saveAndFlush(seance);
 	}
 
 	@Override
 	public void delete(long id) {
-		sessionDAO.delete(id);
+		seanceDAO.delete(id);
 	}
 
 	@Override
-	public List<Session> getAll() {
-		return sessionDAO.findAll();
+	public List<Seance> getAll() {
+		return seanceDAO.findAll();
 	}
 
 	@Override
 	public boolean isUnique(long id) {
-		if(sessionDAO.findOne(id) != null) {
+		if(seanceDAO.findOne(id) != null) {
 			return false;
 		}
 		return true;
 	}
 
 	@Override
-	public List<Session> findByTypeD(String typeD) {
+	public List<Seance> findByTypeD(String typeD) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Session> findByMovie(String movieName) {
+	public List<Seance> findByMovie(String movieName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Session> findByCinema(String cinemaName) {
+	public List<Seance> findByCinema(String cinemaName) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Session> findByDate(Date date) {
+	public List<Seance> findByDate(Date date) {
 		// TODO Auto-generated method stub
 		return null;
 	}

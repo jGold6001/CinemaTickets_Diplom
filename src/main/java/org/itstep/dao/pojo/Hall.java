@@ -28,7 +28,7 @@ public class Hall implements Serializable{
 	@Column(name="NAME", length=60, nullable = false)
 	private String name;
 	
-	@Column(name="CINEMA", length=6, nullable = false)
+	@Column(name="CINEMA_ID", length=6, nullable = false)
 	private long cinema;
 
 	public Hall() {

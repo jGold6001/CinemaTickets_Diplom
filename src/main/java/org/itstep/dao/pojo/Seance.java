@@ -17,8 +17,8 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "SESSIONS")
-public class Session implements Serializable {
+@Table(name = "SEANCES")
+public class Seance implements Serializable {
 
 	private static final long serialVersionUID = 7569496672176968780L;
 	
@@ -36,17 +36,17 @@ public class Session implements Serializable {
 	@Column(name = "TIPE_D", length=4)
 	private String tipeD;
 	
-	@Column(name = "HALL", length=10, nullable = false)
+	@Column(name = "HALL_ID", length=10, nullable = false)
 	private int hall;
 	
-	@Column(name = "MOVIE", length=10, nullable = false)
+	@Column(name = "MOVIE_ID", length=10, nullable = false)
 	private long movie;
 	
-	public Session() {
+	public Seance() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Session(Date date, Time startTime, String tipeD, int hall, long movie) {
+	public Seance(Date date, Time startTime, String tipeD, int hall, long movie) {
 		this.date = date;
 		this.startTime = startTime;
 		this.tipeD = tipeD;

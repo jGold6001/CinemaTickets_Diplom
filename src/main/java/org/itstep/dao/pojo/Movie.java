@@ -62,6 +62,7 @@ public class Movie implements Serializable {
 	
 	@Column(name = "DATE_ISSUE")
 	private Date dateIssue;
+	 
 	
 	public Movie() {
 		// TODO Auto-generated constructor stub

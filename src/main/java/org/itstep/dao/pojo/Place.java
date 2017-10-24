@@ -32,7 +32,7 @@ public class Place implements Serializable{
 	@Column(name="TYPE", length=10)
 	private String type;
 	
-	@Column(name="HALL", length=6, nullable = false)
+	@Column(name="HALL_ID", length=6, nullable = false)
 	private int hall;
 	
 	public Place() {
