@@ -32,16 +32,15 @@ public class Cinema implements Serializable{
 	private String address;
 	
 	@Column(name="CITY_ID", length=6, nullable = false)
-	private long city;
+	private long cityId;
 	
 	public Cinema() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Cinema(String name, String address, int city) {
+	public Cinema(String name, String address) {
 		this.name = name;
 		this.address = address;
-		this.city = city;
 	}
 	
 	

@@ -36,22 +36,20 @@ public class Seance implements Serializable {
 	@Column(name = "TIPE_D", length=4)
 	private String tipeD;
 	
-	@Column(name = "HALL_ID", length=10, nullable = false)
-	private int hall;
-	
-	@Column(name = "MOVIE_ID", length=10, nullable = false)
-	private long movie;
+	@Column(name = "MOVIE_ID", nullable = false)
+	private long movieId;
+
+	@Column(name = "CINEMA_ID", length=4, nullable = false)
+	private int cinemaId;
 	
 	public Seance() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Seance(Date date, Time startTime, String tipeD, int hall, long movie) {
+	public Seance(Date date, Time startTime, String tipeD) {
 		this.date = date;
 		this.startTime = startTime;
 		this.tipeD = tipeD;
-		this.hall = hall;
-		this.movie = movie;
 	}
 	
 	
