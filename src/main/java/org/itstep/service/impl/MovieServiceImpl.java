@@ -52,10 +52,6 @@ public class MovieServiceImpl implements MovieService {
 		return movieDAO.findAllComingSoon();
 	}
 
-	@Override
-	public List<Movie> findByDate(Date selectDate) {
-		return null;
-	}
 
 	@Override
 	public List<Movie> getAllByRankOrder() {

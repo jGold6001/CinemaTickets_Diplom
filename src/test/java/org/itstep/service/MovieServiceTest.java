@@ -77,16 +77,9 @@ public class MovieServiceTest {
 		 assertEquals(movies.get(1).getName(), listInDb.get(0).getName());
 	}
 	
-	@Test
-	public void test5FindByDate() {
-//		LocalDate localDate = dateCurrent.toLocalDate().plusDays(1);
-//		List<Movie> listInDb = movieService.findByDate(Date.valueOf(localDate));
-//		assertEquals(movies.get(0).getName(), listInDb.get(0).getName());
-//		assertEquals(movies.get(2).getName(), listInDb.get(1).getName());
-	}
 	
 	@Test
-	public void test6GetAllByRankOrder() {
+	public void test5GetAllByRankOrder() {
 		List<Movie> listInDb = movieService.getAllByRankOrder();
 		assertEquals(listInDb.get(0).getRankSales(), 5);
 		assertEquals(listInDb.get(1).getRankSales(), 2);
