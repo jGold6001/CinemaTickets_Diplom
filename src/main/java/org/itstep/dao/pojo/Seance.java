@@ -6,9 +6,12 @@ import java.sql.Time;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -36,11 +39,19 @@ public class Seance implements Serializable {
 	@Column(name = "TIPE_D", length=4)
 	private String tipeD;
 	
-	@Column(name = "MOVIE_ID", nullable = false)
-	private long movieId;
-
-	@Column(name = "CINEMA_ID", length=4, nullable = false)
-	private int cinemaId;
+//	@Column(name = "MOVIE_ID", nullable = false)
+//	private long movieId;
+//
+//	@Column(name = "CINEMA_ID", length=4, nullable = false)
+//	private int cinemaId;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CINEMA_ID")
+	private Cinema cinema;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "MOVIE_ID")
+	private Movie movie;
 	
 	public Seance() {
 		// TODO Auto-generated constructor stub
