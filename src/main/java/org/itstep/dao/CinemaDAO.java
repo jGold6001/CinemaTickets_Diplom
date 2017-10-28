@@ -13,6 +13,6 @@ public interface CinemaDAO extends JpaRepository<Cinema, Long>{
 	@Query(value="SELECT * FROM CINEMAS WHERE NAME = ?1",nativeQuery = true)
 	Cinema findByName(String name);
 	
-	@Query(value="SELECT * FROM CINEMAS INNER JOIN ",nativeQuery = true)
-	List<Cinema> findAllByCity(String cityName);
+//	@Query(value="SELECT * FROM CINEMAS INNER JOIN ",nativeQuery = true)
+//	List<Cinema> findAllByCity(String cityName);
 }

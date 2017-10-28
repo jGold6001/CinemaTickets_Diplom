@@ -39,7 +39,7 @@ public class Cinema implements Serializable{
 	
 //	@Column(name="CITY_ID", length=6, nullable = false)
 //	private long cityId;
-	
+
 	@OneToMany(mappedBy = "cinema", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Seance> seances;
 	

@@ -43,14 +43,14 @@ public class CinemaServiceTest {
 		city = Cities.getCities().get(0);
 	}
 	
-	@Test
-	public void test1CreateOrUpdate() {
-		cityService.createOrUpdate(city);
-		for (Cinema cinema : cinemas) {
-			cinema.setCity(city);
-			cinemaService.createOrUpdate(cinema);
-		}
-	}
+//	@Test
+//	public void test1CreateOrUpdate() {
+//		cityService.createOrUpdate(city);
+//		for (Cinema cinema : cinemas) {
+//			cinema.setCity(city);
+//			cinemaService.createOrUpdate(cinema);
+//		}
+//	}
 	
 	@Test
 	public void test2GetOneString() {
@@ -70,17 +70,17 @@ public class CinemaServiceTest {
 		
 	}
 	
-	@Test
-	public void test5Delete() {
-		City city = cityService.getAll().get(0);
-		cityService.delete(city.getId());
-		
-		List<Cinema> cinemasInDb = cinemaService.getAll();
-		for (Cinema cinema : cinemasInDb) {
-				cinemaService.delete(cinema.getId());
-		}
-		
-	}
+//	@Test
+//	public void test5Delete() {
+//		City city = cityService.getAll().get(0);
+//		cityService.delete(city.getId());
+//		
+//		List<Cinema> cinemasInDb = cinemaService.getAll();
+//		for (Cinema cinema : cinemasInDb) {
+//				cinemaService.delete(cinema.getId());
+//		}
+//		
+//	}
 
 
 }
