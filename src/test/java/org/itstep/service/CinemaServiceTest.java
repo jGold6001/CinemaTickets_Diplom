@@ -32,47 +32,50 @@ public class CinemaServiceTest {
 	@Autowired
 	private CityService cityService;
 	
-	List<Cinema> cinemas;
-	Cinema cinema;
+	private List<Cinema> cinemas;
+	private Cinema cinema;
+	private City city;
 	
 	@Before
 	public void setData() {
 		cinemas = Cinemas.getCinemas();
 		cinema = cinemas.get(0);
+		city = Cities.getCities().get(0);
 	}
 	
-//	@Test
-//	public void test1CreateOrUpdate() {
-//		for (Cinema cinema : cinemas) {
-//			cinemaService.createOrUpdate(cinema);
-//		}
-//	}
-//	
-//	@Test
-//	public void test2GetOneString() {
-//		Cinema cinemaInDb = cinemaService.getOne(cinema.getName());
-//		assertEquals(cinemaInDb.getName(), cinema.getName());
-//	}
+	@Test
+	public void test1CreateOrUpdate() {
+		cityService.createOrUpdate(city);
+		for (Cinema cinema : cinemas) {
+			cinema.setCity(city);
+			cinemaService.createOrUpdate(cinema);
+		}
+	}
+	
+	@Test
+	public void test2GetOneString() {
+		Cinema cinemaInDb = cinemaService.getOne(cinema.getName());
+		assertEquals(cinemaInDb.getName(), cinema.getName());
+	}
 //
 //	@Test
 //	public void test3GetAll() {
 //		 List<Cinema> cinemasInDb = cinemaService.getAll();
 //		 assertEquals(cinemasInDb.get(0).getName(), cinemas.get(0).getName());
 //	}
-//
+
 	@Test
 	public void test4GetAllByCity() {
-		City city = Cities.getCities().get(0);
-		city.setCinemas(cinemas);
-		cityService.createOrUpdate(city);
+		
 		
 	}
 	
 	@Test
 	public void test5Delete() {
-		List<Cinema> cinemasInDb = cinemaService.getAll();
 		City city = cityService.getAll().get(0);
 		cityService.delete(city.getId());
+		
+		List<Cinema> cinemasInDb = cinemaService.getAll();
 		for (Cinema cinema : cinemasInDb) {
 				cinemaService.delete(cinema.getId());
 		}
