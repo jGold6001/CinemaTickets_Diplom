@@ -1,13 +1,13 @@
 package org.itstep.service;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.sql.Date;
 import java.util.List;
 
 import org.itstep.App;
 import org.itstep.dao.pojo.Movie;
-import org.itstep.test_data_collections.Movies;
+import org.itstep.data_for_testing.movies.Movies;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;

@@ -47,14 +47,25 @@ public class Seance implements Serializable {
 	@JoinColumn(name = "MOVIE_ID")
 	private Movie movie;
 	
+	@Column(name= "Hall", length=50)
+	private String hall;
+	
 	public Seance() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
-	public Seance(Date date, Time startTime, String tipeD) {
+	public Seance(Movie movie,Time startTime) {
+		this.movie = movie;
+		this.startTime = startTime;
+	}
+	
+	public Seance(Cinema cinema, Movie movie, Date date, Time startTime, String tipeD, String hall) {
+		this.cinema = cinema;
+		this.movie = movie;
 		this.date = date;
 		this.startTime = startTime;
 		this.tipeD = tipeD;
+		this.hall = hall;
 	}
 	
 	

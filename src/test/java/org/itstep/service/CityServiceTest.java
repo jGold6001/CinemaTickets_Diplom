@@ -1,10 +1,8 @@
 package org.itstep.service;
 
-import java.util.List;
-
 import org.itstep.App;
 import org.itstep.dao.pojo.City;
-import org.itstep.test_data_collections.Cities;
+import org.itstep.data_for_testing.cities.Cities;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -29,7 +27,7 @@ public class CityServiceTest {
 	
 	@Before
 	public void setData() {
-		city = Cities.getCities().get(0);
+		city = Cities.getList().get(0);
 	}
 	
 	@Test

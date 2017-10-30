@@ -1,6 +1,11 @@
 package org.itstep.service;
 
+import java.util.List;
+
 import org.itstep.App;
+import org.itstep.dao.pojo.Cinema;
+import org.itstep.dao.pojo.Movie;
+import org.itstep.dao.pojo.Seance;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -21,24 +26,25 @@ public class SeanceServiceTest {
 	@Autowired
 	private SeanceService seanceService; 
 	
+	@Autowired
+	private CinemaService cinemaService;
+	
+	@Autowired 
+	private MovieService movieService;
+	
+	private List<Seance> seances;
+	private List<Cinema> cinemas;
+	private List<Movie> movies;
+	
+	
 	@Before
 	public void setData() {
+		
 		
 	}
 	
 	@Test
-	public void testGetOne() {
+	public void test() {
 		
 	}
-
-	@Test
-	public void testCreateOrUpdate() {
-		
-	}
-
-	@Test
-	public void testGetAll() {
-		
-	}
-
 }

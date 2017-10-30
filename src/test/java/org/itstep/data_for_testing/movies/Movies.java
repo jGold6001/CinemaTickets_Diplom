@@ -1,4 +1,4 @@
-package org.itstep.test_data_collections;
+package org.itstep.data_for_testing.movies;
 
 import java.sql.Date;
 import java.time.LocalDate;

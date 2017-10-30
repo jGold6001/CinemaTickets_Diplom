@@ -41,7 +41,7 @@ public class CinemaServiceImpl implements CinemaService {
 
 	@Override
 	public List<Cinema> getAllByCity(String cityName) {
-		return null;
+		return cinemaDAO.findAllByCity(cityName);
 	}
 
 	@Override
