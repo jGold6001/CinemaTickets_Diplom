@@ -54,9 +54,11 @@ public class Seance implements Serializable {
 		
 	}
 
-	public Seance(Movie movie,Time startTime) {
-		this.movie = movie;
+	public Seance(Date date, Time startTime, String tipeD, String hall) {
+		this.date = date;
 		this.startTime = startTime;
+		this.tipeD = tipeD;
+		this.hall = hall;
 	}
 	
 	public Seance(Cinema cinema, Movie movie, Date date, Time startTime, String tipeD, String hall) {
