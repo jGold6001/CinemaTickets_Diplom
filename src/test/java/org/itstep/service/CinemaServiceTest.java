@@ -57,7 +57,7 @@ public class CinemaServiceTest {
 		Cinema cinemaInDb = cinemaService.getOne(cinema.getName());
 		assertEquals(cinemaInDb.getName(), cinema.getName());
 	}
-//
+
 //	@Test
 //	public void test3GetAll() {
 //		 List<Cinema> cinemasInDb = cinemaService.getAll();

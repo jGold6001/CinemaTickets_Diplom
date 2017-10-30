@@ -35,7 +35,7 @@ public class City implements Serializable{
 	private List<Cinema> cinemas;
 	
 	public City() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public City(String name) {

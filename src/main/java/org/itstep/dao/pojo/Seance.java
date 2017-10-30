@@ -39,17 +39,11 @@ public class Seance implements Serializable {
 	@Column(name = "TIPE_D", length=4)
 	private String tipeD;
 	
-//	@Column(name = "MOVIE_ID", nullable = false)
-//	private long movieId;
-//
-//	@Column(name = "CINEMA_ID", length=4, nullable = false)
-//	private int cinemaId;
-	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "CINEMA_ID")
 	private Cinema cinema;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne
 	@JoinColumn(name = "MOVIE_ID")
 	private Movie movie;
 	

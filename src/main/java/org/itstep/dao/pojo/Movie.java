@@ -69,7 +69,7 @@ public class Movie implements Serializable {
 	private List<Seance> seances;
 	 
 	public Movie() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Movie(String name, String genre, String description, int yearIssue, int duration, String ageCategory,
