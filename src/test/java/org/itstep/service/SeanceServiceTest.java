@@ -6,9 +6,12 @@ import org.itstep.App;
 import org.itstep.dao.pojo.Cinema;
 import org.itstep.dao.pojo.Movie;
 import org.itstep.dao.pojo.Seance;
+import org.itstep.dao.pojo.constants.TypeD;
 import org.itstep.data_for_testing.cinemas.Cinemas;
 import org.itstep.data_for_testing.movies.Movies;
-import org.itstep.data_for_testing.seanses.TodaySeances;
+import org.itstep.data_for_testing.seanses.FlorenceSeances;
+import org.itstep.data_for_testing.seanses.MultiplexProspectSeances;
+import org.itstep.data_for_testing.seanses.MultiplexSkyMallSeances;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -35,70 +38,90 @@ public class SeanceServiceTest {
 	@Autowired 
 	private MovieService movieService;
 	
-	private List<Seance> todaySeances;
-	private List<Cinema> cinemas;
-	private List<Movie> movies;
+	private List<Seance> mSkyMallSeances;
+	private List<Seance> mProspectSeances;
+	private List<Seance> florenceSeances;
+	
+	private Cinema mSkymall;
+	private Cinema mProspect;
+	private Cinema florence;
+	
+	private Movie bladeRunner;
+	private Movie pony;
+	private Movie salut;
 	
 	@Before
 	public void setData() {
-		todaySeances = TodaySeances.getList();
-		movies = Movies.getList();
-		cinemas = Cinemas.getList();
+		mSkyMallSeances = MultiplexSkyMallSeances.getList();
+		mProspectSeances = MultiplexProspectSeances.getList();
+		florenceSeances = FlorenceSeances.getList();
+		
+		List<Cinema> cinemas = Cinemas.getList();
+		mSkymall = cinemas.get(0);
+		mProspect = cinemas.get(1);
+		florence = cinemas.get(3);
+		
+		List<Movie> movies = Movies.getList();
+		bladeRunner = movies.get(0);
+		pony = movies.get(1);
+		salut = movies.get(2);
 	}
 	
-	@Test
-	public void test1CreateOrUpdate() {
-		for (Cinema cinema : cinemas) {
-			cinemaService.createOrUpdate(cinema);
-		}
-		
-		for (Movie movie : movies) {
-			movieService.createOrUpdate(movie);
-		}
-		
-		Cinema mSkymall = cinemas.get(0);
-		Cinema mProspect = cinemas.get(1);
-		Cinema florence = cinemas.get(3);
-		
-		Movie bladeRunner = movies.get(0);
-		Movie pony = movies.get(1);
-		Movie salut = movies.get(2);
-		
-		for (int i = 0; i < todaySeances.size(); i++) {
-			if(i<3) {
-				todaySeances.get(i).setMovie(bladeRunner);
-				todaySeances.get(i).setCinema(mSkymall);
-			}else if(i>= 3 && i < 9) {
-				todaySeances.get(i).setMovie(pony);
-				todaySeances.get(i).setCinema(mSkymall);
-			}else if(i>=9 && i <12){
-				todaySeances.get(i).setMovie(salut);
-				todaySeances.get(i).setCinema(mSkymall);
-			}else if(i>=12 && i<15) {
-				todaySeances.get(i).setMovie(bladeRunner);
-				todaySeances.get(i).setCinema(mProspect);
-			}else if(i>=15 && i<21) {
-				todaySeances.get(i).setMovie(pony);
-				todaySeances.get(i).setCinema(mProspect);
-			}else if(i>=21 && i<24) {
-				todaySeances.get(i).setMovie(salut);
-				todaySeances.get(i).setCinema(mProspect);
-			}else if(i>=24 && i<27) {
-				todaySeances.get(i).setMovie(bladeRunner);
-				todaySeances.get(i).setCinema(florence);
-			}else if(i>=27 && i<30){
-				todaySeances.get(i).setMovie(pony);
-				todaySeances.get(i).setCinema(florence);
-			}else {
-				todaySeances.get(i).setMovie(salut);
-				todaySeances.get(i).setCinema(florence);
-			}
-			seanceService.createOrUpdate(todaySeances.get(i));	
-		}
-	}
+//	@Test
+//	public void test1CreateOrUpdate() {
+//		//cinemas
+//		cinemaService.createOrUpdate(mSkymall);
+//		cinemaService.createOrUpdate(mProspect);
+//		cinemaService.createOrUpdate(florence);
+//		
+//		//movies
+//		movieService.createOrUpdate(bladeRunner);
+//		movieService.createOrUpdate(pony);
+//		movieService.createOrUpdate(salut);
+//		
+//		//seanses of SkyMAll
+//		for (int i = 0; i < mSkyMallSeances.size(); i++) {
+//			if(i <5) {
+//				mSkyMallSeances.get(i).setMovie(bladeRunner);
+//			}else if(i>=5 && i<9) {
+//				mSkyMallSeances.get(i).setMovie(pony);
+//			}else {
+//				mSkyMallSeances.get(i).setMovie(salut);
+//			}
+//			mSkyMallSeances.get(i).setCinema(mSkymall);
+//			seanceService.createOrUpdate(mSkyMallSeances.get(i));	
+//		}
+//		
+//		//seanses of Prospect
+//		for (int i = 0; i < mProspectSeances.size(); i++) {
+//			if(i <5) {
+//				mProspectSeances.get(i).setMovie(bladeRunner);
+//			}else if(i>=5 && i<9) {
+//				mProspectSeances.get(i).setMovie(pony);
+//			}else {
+//				mProspectSeances.get(i).setMovie(salut);
+//			}
+//			mProspectSeances.get(i).setCinema(mSkymall);
+//			seanceService.createOrUpdate(mProspectSeances.get(i));	
+//		}
+//		
+//		//seanses of Florence
+//		for (int i = 0; i < florenceSeances.size(); i++) {
+//			if(i <3) {
+//				florenceSeances.get(i).setMovie(bladeRunner);
+//			}else if(i>=3 && i<5) {
+//				florenceSeances.get(i).setMovie(pony);
+//			}else {
+//				florenceSeances.get(i).setMovie(salut);
+//			}
+//			florenceSeances.get(i).setCinema(florence);
+//			seanceService.createOrUpdate(florenceSeances.get(i));	
+//		}
+//	}
 	
 	@Test
 	public void test2FindByTypeD() {
+		List<Seance> sencesInDb = seanceService.findByTypeD(TypeD.twoD);
 		
 	}
 	
@@ -117,22 +140,22 @@ public class SeanceServiceTest {
 		
 	}
 	
-	@Test
-	public void test6Delete() {
-		List<Cinema> cinemasInDb = cinemaService.getAll();
-		List<Movie> moviesInDb = movieService.getAll();
-		List<Seance> seancesInDb = seanceService.getAll();
-		
-		for (Seance seance : seancesInDb) {
-			seanceService.delete(seance.getId());
-		}
-		
-		for (Cinema cinema : cinemasInDb) {
-			cinemaService.delete(cinema.getId());
-		}
-		
-		for (Movie movie : moviesInDb) {
-			movieService.delete(movie.getId());
-		}
-	}
+//	@Test
+//	public void test6Delete() {
+//		List<Cinema> cinemasInDb = cinemaService.getAll();
+//		List<Movie> moviesInDb = movieService.getAll();
+//		List<Seance> seancesInDb = seanceService.getAll();
+//		
+//		for (Seance seance : seancesInDb) {
+//			seanceService.delete(seance.getId());
+//		}
+//		
+//		for (Cinema cinema : cinemasInDb) {
+//			cinemaService.delete(cinema.getId());
+//		}
+//		
+//		for (Movie movie : moviesInDb) {
+//			movieService.delete(movie.getId());
+//		}
+//	}
 }

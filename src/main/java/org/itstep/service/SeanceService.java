@@ -14,6 +14,6 @@ public interface SeanceService {
 	public List<Seance> findByTypeD(String typeD);
 	public List<Seance> findByMovie(String movieName);
 	public List<Seance> findByCinema(String cinemaName);
-	public List<Seance> findByDate(Date date);
+	public List<Seance> findByDate(String dateStr);
 	public boolean isUnique(long id);
 }

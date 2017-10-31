@@ -45,26 +45,22 @@ public class SeanceServiceImpl implements SeanceService {
 
 	@Override
 	public List<Seance> findByTypeD(String typeD) {
-		// TODO Auto-generated method stub
-		return null;
+		return seanceDAO.findByTypeD(typeD);
 	}
 
 	@Override
 	public List<Seance> findByMovie(String movieName) {
-		// TODO Auto-generated method stub
-		return null;
+		return seanceDAO.findByMovie(movieName);
 	}
 
 	@Override
 	public List<Seance> findByCinema(String cinemaName) {
-		// TODO Auto-generated method stub
-		return null;
+		return seanceDAO.findByCinema(cinemaName);
 	}
 
 	@Override
-	public List<Seance> findByDate(Date date) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Seance> findByDate(String dateStr) {
+		return seanceDAO.findByDate(dateStr);
 	}
 
 }

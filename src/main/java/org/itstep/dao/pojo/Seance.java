@@ -36,8 +36,8 @@ public class Seance implements Serializable {
 	@Column(name = "START_TIME", nullable = false)
 	private Time startTime;
 	
-	@Column(name = "TIPE_D", length=4)
-	private String tipeD;
+	@Column(name = "TYPE_D", length=4)
+	private String typeD;
 	
 	@ManyToOne
 	@JoinColumn(name = "CINEMA_ID")
@@ -54,19 +54,19 @@ public class Seance implements Serializable {
 		
 	}
 
-	public Seance(Date date, Time startTime, String tipeD, String hall) {
+	public Seance(Date date, Time startTime, String typeD, String hall) {
 		this.date = date;
 		this.startTime = startTime;
-		this.tipeD = tipeD;
+		this.typeD = typeD;
 		this.hall = hall;
 	}
 	
-	public Seance(Cinema cinema, Movie movie, Date date, Time startTime, String tipeD, String hall) {
+	public Seance(Cinema cinema, Movie movie, Date date, Time startTime, String typeD, String hall) {
 		this.cinema = cinema;
 		this.movie = movie;
 		this.date = date;
 		this.startTime = startTime;
-		this.tipeD = tipeD;
+		this.typeD = typeD;
 		this.hall = hall;
 	}
 	
