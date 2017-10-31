@@ -1,6 +1,7 @@
 package org.itstep.service.impl;
 
 import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.itstep.dao.SeanceDAO;
@@ -59,8 +60,8 @@ public class SeanceServiceImpl implements SeanceService {
 	}
 
 	@Override
-	public List<Seance> findByDate(String dateStr) {
-		return seanceDAO.findByDate(dateStr);
+	public List<Seance> findByDate(Date date) {
+		return seanceDAO.findByDate(date);
 	}
 
 }
