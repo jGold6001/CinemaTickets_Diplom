@@ -113,7 +113,12 @@ public class SeanceServiceTest {
 	}
 	
 	@Test
-	public void test9Delete() {
+	public void test5FindByDate() {
+		
+	}
+	
+	@Test
+	public void test6Delete() {
 		List<Cinema> cinemasInDb = cinemaService.getAll();
 		List<Movie> moviesInDb = movieService.getAll();
 		List<Seance> seancesInDb = seanceService.getAll();
